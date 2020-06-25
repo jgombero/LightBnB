@@ -78,10 +78,7 @@ AND reservations.end_date < now()::date
 GROUP BY properties.id, reservations.id
 ORDER BY reservations.start_date
 LIMIT $2;`, [ guest_id, limit ])
-.then(res =>  {
-  console.log(res.rows);
-  return res.rows;
-})
+.then(res =>  res.rows)
 .catch(err => null);
 };
 exports.getAllReservations = getAllReservations;
